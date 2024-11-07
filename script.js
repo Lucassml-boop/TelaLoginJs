@@ -118,11 +118,12 @@ function cadastrar() {
     msgError.style.display = "none"; // Esconde a mensagem de erro caso já tenha sido mostrada
     msgSuccess.style.display = "block";
     msgSuccess.innerHTML = "<strong>Cadastrando usuário...</strong>";
-    window.location.href = "https://jlqmk3-5500.csb.app/login.html";
+    setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500); // Redireciona após 1.5 segundos
   } else {
     msgSuccess.style.display = "none"; // Esconde a mensagem de sucesso caso já tenha sido mostrada
     msgError.style.display = "block";
-    msgError.innerHTML =
-      "<strong>Preencha todos os campos corretamente antes de concluir o cadastro...</strong>";
+    msgError.innerHTML ="<strong>Preencha todos os campos corretamente antes de concluir o cadastro...</strong>";
   }
 }
