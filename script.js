@@ -1,10 +1,10 @@
 // Seleção dos elementos do DOM
 let nome = document.querySelector("#nome");
-let labelNome = document.querySelector('label[for="nome"]'); // Seleciona o label corretamente
+let labelNome = document.querySelector('label[for="nome"]'); 
 let validNome = false;
 
 let usuario = document.querySelector("#usuario");
-let labelUsuario = document.querySelector('label[for="usuario"]'); // Seleciona o label corretamente
+let labelUsuario = document.querySelector('label[for="usuario"]'); 
 let validUsuario = false;
 
 let senha = document.querySelector("#senha");
@@ -41,22 +41,22 @@ function validarCampo(input, label, minLength, labelText) {
     label.innerHTML = `${labelText} *Insira no mínimo ${minLength} caracteres`;
     label.style.fontSize = "11px";
     input.setAttribute("style", "border-color:red");
-    return false; // Retorna false se a validação falhar
+    return false; 
   } else {
     label.setAttribute("style", "color:green");
     label.innerHTML = labelText;
     input.setAttribute("style", "border-color:green");
-    return true; // Retorna true se a validação passar
+    return true; 
   }
 }
 
 // Validação dos campos com eventos de keyup
 nome.addEventListener("keyup", () => {
-  validNome = validarCampo(nome, labelNome, 3, "Nome"); // Atualiza validNome com o retorno da validação
+  validNome = validarCampo(nome, labelNome, 3, "Nome");
 });
 
 usuario.addEventListener("keyup", () => {
-  validUsuario = validarCampo(usuario, labelUsuario, 4, "Usuário"); // Atualiza validUsuario com o retorno da validação
+  validUsuario = validarCampo(usuario, labelUsuario, 4, "Usuário");
 });
 
 // Validação de senha com comprimento mínimo de 6 caracteres
@@ -66,13 +66,13 @@ senha.addEventListener("keyup", () => {
     labelSenha.innerHTML = "Senha *Insira no mínimo 6 caracteres";
     labelSenha.style.fontSize = "11px";
     senha.setAttribute("style", "border-color:red");
-    validSenha = false; // Atualiza validSenha
+    validSenha = false; 
   } else {
     labelSenha.setAttribute("style", "color:green");
     labelSenha.innerHTML = "Senha";
     labelSenha.style.fontSize = "11px";
     senha.setAttribute("style", "border-color:green");
-    validSenha = true; // Atualiza validSenha
+    validSenha = true; 
   }
 });
 
@@ -83,19 +83,19 @@ confSenha.addEventListener("keyup", () => {
     labelConfSenha.innerHTML = "Confirmar Senha *Campo obrigatório";
     labelConfSenha.style.fontSize = "11px";
     confSenha.setAttribute("style", "border-color:red");
-    validConfSenha = false; // Atualiza validConfSenha
+    validConfSenha = false; 
   } else if (senha.value !== confSenha.value) {
     labelConfSenha.setAttribute("style", "color:red");
     labelConfSenha.innerHTML = "Confirmar Senha *As senhas não conferem";
     labelConfSenha.style.fontSize = "11px";
     confSenha.setAttribute("style", "border-color:red");
-    validConfSenha = false; // Atualiza validConfSenha
+    validConfSenha = false; 
   } else {
     labelConfSenha.setAttribute("style", "color:green");
     labelConfSenha.innerHTML = "Confirmar Senha";
     labelConfSenha.style.fontSize = "11px";
     confSenha.setAttribute("style", "border-color:green");
-    validConfSenha = true; // Atualiza validConfSenha
+    validConfSenha = true; 
   }
 });
 
@@ -115,14 +115,14 @@ function cadastrar() {
   localStorage.setItem("listUser", JSON.stringify(listUser));
 
   if (validNome && validUsuario && validSenha && validConfSenha) {
-    msgError.style.display = "none"; // Esconde a mensagem de erro caso já tenha sido mostrada
+    msgError.style.display = "none"; 
     msgSuccess.style.display = "block";
     msgSuccess.innerHTML = "<strong>Cadastrando usuário...</strong>";
     setTimeout(() => {
         window.location.href = "login.html";
-      }, 1500); // Redireciona após 1.5 segundos
+      }, 1500); 
   } else {
-    msgSuccess.style.display = "none"; // Esconde a mensagem de sucesso caso já tenha sido mostrada
+    msgSuccess.style.display = "none"; 
     msgError.style.display = "block";
     msgError.innerHTML ="<strong>Preencha todos os campos corretamente antes de concluir o cadastro...</strong>";
   }
