@@ -169,7 +169,19 @@ a:hover {
   color: #272262;
 }
 
-#msgError,
+#msgError{
+  position: absolute; /* Permite que as mensagens flutuem sem impactar o layout */
+  width: 40%; /* Largura das mensagens em relação ao card */
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajuste para centralização */
+  top: 30px; /* Ajuste vertical para aparecer acima dos campos de cadastro */
+  display: none; /* Esconde as mensagens inicialmente */
+} 
+
 #msgSuccess {
   position: absolute; /* Permite que as mensagens flutuem sem impactar o layout */
   width: 40%; /* Largura das mensagens em relação ao card */
